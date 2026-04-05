@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="PEI.Assemblies.Plugins.Tests/PEI.Assemblies.Plugins.Tests.csproj" />
   <Project Path="PEI.Assemblies.Plugins/PEI.Assemblies.Plugins.csproj" />
 </Solution>

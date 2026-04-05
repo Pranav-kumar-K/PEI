@@ -1,0 +1,4 @@
+1. Logic runs in Client Side, Validation cannot be in place with Server
+2. If Users are aware about some debugging tools , Dev tools like Level Up, Power Pane, they can enter Data as the validation is in Client Side
+3. Estimated revenue to be calculated based on validation, What if Estimated revenue already exists and what happens if user enters a value and field behavior changes ? Over write the value?
+
