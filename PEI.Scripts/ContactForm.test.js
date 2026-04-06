@@ -102,7 +102,7 @@ describe("PEI.Opportunity Tests", () => {
 
         const formContext = XrmMockGenerator.getFormContext();
         const executionContext = { getFormContext: () => formContext };
-        
+
         Contact.setFieldRequirements(executionContext);
 
         formContext.getAttribute("preferredcontactmethodcode").setValue(2);
@@ -114,34 +114,34 @@ describe("PEI.Opportunity Tests", () => {
 
     test("should prevent save and show alert when both email and phone are empty", () => {
 
-    XrmMockGenerator.Attribute.createString("emailaddress1", null);
-    XrmMockGenerator.Attribute.createString("telephone1", null);
+        XrmMockGenerator.Attribute.createString("emailaddress1", null);
+        XrmMockGenerator.Attribute.createString("telephone1", null);
 
-    const formContext = XrmMockGenerator.getFormContext();
+        const formContext = XrmMockGenerator.getFormContext();
 
-    const preventDefaultMock = jest.fn();
+        const preventDefaultMock = jest.fn();
 
-    const executionContext = {
-        getFormContext: () => formContext,
-        getEventArgs: () => ({
-            preventDefault: preventDefaultMock
-        })
-    };
+        const executionContext = {
+            getFormContext: () => formContext,
+            getEventArgs: () => ({
+                preventDefault: preventDefaultMock
+            })
+        };
 
-    Xrm.Navigation = {
-        openAlertDialog: jest.fn()
-    };
+        Xrm.Navigation = {
+            openAlertDialog: jest.fn()
+        };
 
-    Contact.onSave(executionContext);
+        Contact.onSave(executionContext);
 
-    expect(preventDefaultMock).toHaveBeenCalled();
+        expect(preventDefaultMock).toHaveBeenCalled();
 
-    expect(Xrm.Navigation.openAlertDialog).toHaveBeenCalledWith(
-        expect.objectContaining({
-            text: expect.stringContaining("Please provide at least")
-        }),
-        expect.any(Object)
-    );
+        expect(Xrm.Navigation.openAlertDialog).toHaveBeenCalledWith(
+            expect.objectContaining({
+                text: expect.stringContaining("Please provide at least")
+            }),
+            expect.any(Object)
+        );
     });
 
     test("should allow save when email is provided and phone is empty", () => {
