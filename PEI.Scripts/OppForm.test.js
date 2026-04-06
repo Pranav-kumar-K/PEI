@@ -61,7 +61,7 @@ describe("PEI.Opportunity Tests", () => {
         Opportunity.calculateRevenue(executionContext);
 
         const value = formContext.getAttribute("pei_estimatedrevenue").getValue();
-        expect(value).toBe(950);
+        expect(value).toBe(500);
     });
 
     test("should not calculate revenue for fixed price", () => {

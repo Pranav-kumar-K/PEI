@@ -49,7 +49,7 @@ PEI.Opportunity.calculateRevenue = function (executionContext) {
     var price = formContext.getAttribute("pei_unitprice")?.getValue() || 0;
     var discount = formContext.getAttribute("pei_discount")?.getValue() || 0;
 
-    var calculatedValue = (units * price) - (discount*0.01);
+    var calculatedValue = (units * price) * (discount*0.01);
 
     formContext.getAttribute("pei_estimatedrevenue")?.setValue(calculatedValue);
     formContext.getAttribute("pei_estimatedrevenue")?.setSubmitMode("always");
