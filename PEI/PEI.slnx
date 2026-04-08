@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="PEI.Assemblies.Plugins/PEI.Assemblies.Plugins.csproj" Id="37abd913-7042-424c-b0a3-6f6743b83095" />
   <Project Path="PEI.Assemblies.Tests/PEI.Assemblies.Tests.csproj" Id="f6585242-b4c3-4efb-9674-37646a0bb959" />
+  <Project Path="PEI.AzureFunctions/PEI.AzureFunctions.csproj" Id="3a266cbd-ce74-48a2-ad63-5180bea94754" />
 </Solution>
