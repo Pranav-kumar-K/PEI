@@ -29,7 +29,6 @@ namespace PEI.AzureFunctions
         {
             _logger.LogInformation("Function triggered");
 
-            // Read request body once
             string body;
             using (var reader = new StreamReader(req.Body))
             {
@@ -39,11 +38,9 @@ namespace PEI.AzureFunctions
             JObject json = JObject.Parse(body);
             var attributes = json["InputParameters"]?[0]?["value"]?["Attributes"] as JArray;
 
-            // Extract order name
             string orderName = attributes?
                 .FirstOrDefault(a => (string)a["key"] == "name")?["value"]?.ToString();
 
-            // Extract total amount
             string totalAmountStr = attributes?
                 .FirstOrDefault(a => (string)a["key"] == "totalamount")?["value"]?["Value"]?.ToString();
             decimal orderTotal = 0m;
@@ -51,7 +48,6 @@ namespace PEI.AzureFunctions
 
             _logger.LogInformation($"ORDER RECEIVED : Name={orderName}, Total={orderTotal}");
 
-            // Build payload with just the two fields
             var payload = new
             {
                 OrderName = orderName,
